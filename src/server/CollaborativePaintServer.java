@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 
 public class CollaborativePaintServer {
@@ -82,9 +83,9 @@ public class CollaborativePaintServer {
         }       
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnknownHostException {
         int port = 4444; // default port
-        
+
         try {
             CollaborativePaintServer server = new CollaborativePaintServer(port);
             server.serve();

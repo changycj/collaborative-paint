@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.Socket;
 
 import javax.swing.SwingUtilities;
@@ -15,8 +16,8 @@ public class CollaborativePaintClient {
     private BufferedReader in;
     private PrintWriter out;
     
-    public CollaborativePaintClient(String hostname, int port) throws IOException {
-        socket = new Socket(hostname, port);
+    public CollaborativePaintClient(InetAddress address, int port) throws IOException {
+        socket = new Socket(address, port);
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
         
@@ -33,10 +34,10 @@ public class CollaborativePaintClient {
     
     public static void main(String[] args) {
         int port = 4444;
-        String hostname = "localhost";
-        
+                
         try {
-            CollaborativePaintClient client = new CollaborativePaintClient(hostname, port);
+            InetAddress address = InetAddress.getByName("localhost");
+            CollaborativePaintClient client = new CollaborativePaintClient(address, port);
             client.connect();
         } catch (IOException e) {
             e.printStackTrace();
