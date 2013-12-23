@@ -74,7 +74,7 @@ public class Login extends JFrame {
             nameMessage = new JLabel("Enter username: ");
             username = new JTextField();
             
-            errorMessage = new JLabel("Invalid username and/or game ID.");
+            errorMessage = new JLabel("Invalid username and/or Paint ID.");
             errorMessage.setForeground(this.getBackground());
             
             ActionListener loginListener = new ActionListener() {

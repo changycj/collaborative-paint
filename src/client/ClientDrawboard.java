@@ -63,7 +63,7 @@ public class ClientDrawboard extends JFrame implements Drawboard {
         worker.execute();
         
         panel = new ClientDrawboardPanel();
-        setTitle(String.format("Pictionary Game %d - %s (ID: %d)",
+        setTitle(String.format("Collaborative Paint %d - %s (ID: %d)",
                 gameID, username, userID));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
@@ -168,7 +168,7 @@ public class ClientDrawboard extends JFrame implements Drawboard {
                 }
             });
             
-            currentUsers = new JLabel("Current Users: ");   
+            currentUsers = new JLabel("Current Painters: ");   
             updateUsers();
             
             layout.setHorizontalGroup(
@@ -193,7 +193,7 @@ public class ClientDrawboard extends JFrame implements Drawboard {
         }
         
         public void updateUsers() {
-            String text = "Current Users: ";
+            String text = "Current Painters: ";
             for (String name : users.values()) {
                 text += name + ", ";
             }
